@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+    <meta charset="UTF-8">
+    <title>Your Shopping Cart</title>
+    <style>
+        .content{  width:600px;  margin:0 auto; }
+        .item{margin-bottom: 10px}
+        .content h1{  text-align: center;  }
+        .title{width: 20%;}
+        .input{width: 40%}
+        .price{width: 10%}
+        .currency{width: 10%}
+        span{display:inline-block}
+    </style>
+</head>
+<body ng-controller="CartController">
+<div class="content">
+    <h1>You Order</h1>
+    <div class="item" ng-repeat="item in items">
+        <span class="title">{{ item.title}}</span>
+        <input type="text" class="input" ng-model="item.quantity">
+        <span class="price">{{ item.price | currency}}</span>
+        <span class="currency">{{ item.price * item.quantity | currency}}</span>
+        <button ng-click="remove($index)">Remove</button>
+    </div>
+</div>
+
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('CartController', function($scope) {
+        $scope.items = [
+            {title: 'Paint pots', quantity: 8,  price:3.95},
+            {title: 'Polka dots', quantity: 17, price:12.95},
+            {title: 'Pebbles',    quantity: 5,  price:6.95}
+        ];
+
+        $scope.remove = function (index) {
+            $scope.items.splice(index,1)
+        }
+    });
+</script>
+</body>
+</html>
