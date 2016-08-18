@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>表单输入 ng-submit</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body >
+<div class="content col-md-8 col-md-offset-2" >
+    <form ng-submit="requestFunding()" ng-controller="StartUpController">
+        Starting:<input ng-change="computeNeeded()" ng-model="startingEstimate">
+        Recommendation:{{needed}}
+        <button>Fund my startup! </button>
+        <button ng-click="reset()">Reset</button>
+    </form>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('StartUpController', function($scope) {
+        $scope.computeNeeded = function(){
+            $scope.needed = $scope.startingEstimate * 10;
+            //needed = 输入值*10
+        };
+
+        $scope.requestFunding =function () {
+            window.alert("Sorry,please get more customers first.");
+        };
+        //复位功能
+        $scope.reset = function () {
+            $scope.startingEstimate = 0 ;
+        };
+    });
+</script>
+</body>
+</html>

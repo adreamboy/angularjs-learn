@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Model View Controller</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-controller="TextController">
+<div class="content col-md-8 col-md-offset-2" >
+    <h4>Model View Controller</h4>
+    <p>Model:用来容纳数据的模型(模型代表应用当前的状态）</p>
+    <p>View:用来展示数据的视图
+    <p>Controller:用来管理模型与视图之间关系的一些控制器</p>
+    <p>someText；<input type="text" ng-model="someText.message">{{someText.message}}</p>
+    <!--双花括号插值语法-->
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('TextController', function($scope) {
+        var someText = {};
+        someText.message ='You have started your journey.';
+        $scope.someText = someText;
+    });
+</script>
+</body>
+</html>

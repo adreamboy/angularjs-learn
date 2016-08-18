@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>显示文本</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-controller="TextController">
+<div class="content col-md-8 col-md-offset-2" >
+    <!--use{{}}-->
+    <p>{{someText.message}}</p>
+    <!--或者选择另外一种方式:ng-blind-->
+    <p ng-bind="someText.message"></p>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('TextController', function($scope) {
+        var someText = {};
+        someText.message ='Hi,here.';
+        $scope.someText = someText;
+    });
+</script>
+</body>
+</html>

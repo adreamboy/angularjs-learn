@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>表单输入</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+</head>
+<body >
+<div class="content col-md-8 col-md-offset-2" >
+    <form action="" ng-controller="SomeController">
+        <input type="checkbox" ng-model="youCheckedIt">
+        <span>选中状态：{{youCheckedIt}}</span>
+    </form>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('SomeController', function($scope) {
+
+    });
+</script>
+</body>
+</html>

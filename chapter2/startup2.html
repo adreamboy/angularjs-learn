@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>表单输入 $wach()函数使用</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body >
+<div class="content col-md-8 col-md-offset-2" >
+    <form action="" ng-controller="StartUpController">
+        Starting:<input ng-model="funding.startingEstimate">
+        Recommendation:{{funding.needed}}
+    </form>
+    <p>当funding.startingEstimate的值发生变化时，funding.needed就会自动刷新</p>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('StartUpController', function($scope) {
+        $scope.funding = { startingEstimate: 0 };//默认值设置为0
+
+        computeNeeded = function(){
+            $scope.funding.needed = $scope.funding.startingEstimate * 10;//needed = 输入值*10
+        };
+        //$watch('',)需要的监视的表达式位于引号中
+        $scope.$watch('funding.startingEstimate',computeNeeded);
+    });
+</script>
+</body>
+</html>
