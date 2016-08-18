@@ -1,0 +1,19 @@
+{
+  "name": "angular learn",
+  "version": "0.0.1",
+  "description": "the case of a book",
+  "keywords": [
+    "angular",
+    "css",
+    "js",
+    "framework",
+    "web"
+  ],
+  "homepage": "https://github.com/adreamboy/angularjs-learn",
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "1.5.8",
+    "jquery": "1.9.1 - 3",
+    "bootstrap": "3.3.7"
+  }
+}
