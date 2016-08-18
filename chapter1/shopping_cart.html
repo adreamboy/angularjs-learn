@@ -35,9 +35,10 @@
             {title: 'Polka dots', quantity: 17, price:12.95},
             {title: 'Pebbles',    quantity: 5,  price:6.95}
         ];
-
+        //remove item
+        //移除了数组items中的一个元素
         $scope.remove = function (index) {
-            $scope.items.splice(shopping_cart,1)
+            $scope.items.splice(index,1)
         }
     });
 </script>

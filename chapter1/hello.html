@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <script src="hello_controller.js"></script>
+</head>
+<body>
+
+<div class="col-md-4 col-md-offset-4" style="margin-top: 40px" ng-controller="HelloController">
+    <input type="text" ng-model="greeting.text">
+    <p><b>{{greeting.text}}</b>,World</p>
+</div>
+</body>
+</html>
