@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Css类和样式 | ng-class 的使用 </title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+        .error{background: red;margin-bottom: 20px;}
+        .warning{background: yellow;margin-bottom: 20px}
+        .selected{background: lightgreen}
+    </style>
+</head>
+<body>
+<div class="content col-md-8 col-md-offset-2">
+    <div ng-controller="HeaderController">
+        <div ng-class="{error:isError , warning:isWarning}">{{messageText}}</div>
+        <button class="btn btn-danger" ng-click="showError()">Simulate Error</button>
+        <button class="btn btn-warning" ng-click="showWarning()">Simulate Warning</button>
+    </div>
+    <table ng-controller="RestaurantTableController">
+        <tr ng-repeat="restaurant in directory" ng-click="selectRestaurant($index)" ng-class="{selected: $index == selectedRow}">
+            <td>{{restaurant.name}}</td>
+            <td>{{restaurant.cuisine}}</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+
+    app.controller('HeaderController', function($scope) {
+        $scope.idError = false;
+        $scope.isWarning = false;
+        $scope.messageText = "Error or Warning!";
+        $scope.showError = function () {
+            $scope.messageText = "This is a Error!";
+            $scope.isError = true;
+            $scope.isWarning = false;
+        };
+        $scope.showWarning = function () {
+            $scope.messageText = "This is a Warning!";
+            $scope.isError = false;
+            $scope.isWarning = true;
+        }
+    });
+    app.controller('RestaurantTableController',function ($scope) {
+        $scope.directory = [
+            {name:'The Handsome Heifer', cuisine: 'BBQ'},
+            {name:'Green\'s Green Greens', cuisine: 'Salads'},
+            {name:'House of Fine Fish', cuisine: 'SeaFood'}
+        ];
+        $scope.selectRestaurant = function (row) {
+            $scope.selectedRow = row;
+        }
+    });
+</script>
+</body>
+</html>

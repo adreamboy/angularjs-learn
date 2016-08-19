@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>隐藏与显示以及css类和样式</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+        .menu-disabled-true{
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+<div class="content col-md-8 col-md-offset-2">
+    <div ng-controller="DeathrayMenuController">
+        <button class="btn btn-success" ng-click="toggleMenu()">Toggle Menu</button>
+        <ul ng-show="menuState.show">
+            <li class="menu-disabled-{{isDisabled}}" ng-click="stun()">Stun</li>
+            <li ng-click="disintegrate()">Disintegrate</li>
+            <li ng-click="erase()"> Erase from history</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+
+    app.controller('DeathrayMenuController', function($scope) {
+        $scope.isDisabled = false;
+        $scope.stun =function () {
+            //点击后，状态改变
+            $scope.isDisabled = true;
+        };
+        $scope.menuState={ show:false };
+        $scope.toggleMenu = function () {
+            //state 取反
+            $scope.menuState.show = !$scope.menuState.show;
+        }
+    });
+</script>
+</body>
+</html>
