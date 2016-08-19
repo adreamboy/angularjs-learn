@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>列表、表格以及迭代型元素 | ng-repeat $index</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+        td{min-width: 200px}
+    </style>
+</head>
+<body>
+<div class="content col-md-8 col-md-offset-2">
+    <!--ng-repeat指令可以通过$index会返回当前引用的元素序号-->
+    <table ng-controller="AlbumController" >
+        <tr ng-repeat="track in album" class="col-md-12">
+            <td class="col-md-4">$index:{{$index+1}}</td>
+            <td class="col-md-4">name:{{track.name}}</td>
+            <td class="col-md-4">duration:{{track.duration}}</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    var album =[
+        {name:'Southwest',duration:'2:34'},
+        {name:'Northern Light Waltz',duration:'3:34'},
+        {name:'Eastern Tango',duration:'17:30'}
+    ];
+    app.controller('AlbumController', function($scope) {
+        $scope.album = album;
+    });
+</script>
+</body>
+</html>

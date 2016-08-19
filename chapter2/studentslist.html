@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>列表、表格以及迭代型元素 | ng-repeat</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body >
+<div class="content col-md-8 col-md-offset-2" ng-controller="StudentListController" >
+    <dl >
+        <dt>Students List</dt>
+        <dd ng-repeat="student in students">
+            <a href="student/view/{{student.id}}" style="display: inline-block;min-width:60px">{{student.name}}</a>
+            <span>id:{{student.id}}</span>
+        </dd>
+    </dl>
+    <button ng-click="insertTom()" class="btn btn-success">InsertTom</button>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    var students = [
+        {name: 'Marry',id: 1},
+        {name: 'Jack', id: 2},
+        {name: 'Jill', id: 3}
+    ];
+    app.controller('StudentListController', function($scope) {
+        $scope.students = students;
+
+        $scope.insertTom = function () {
+            $scope.students.splice(1,0,{name:'Tom',id:'4'});
+        };
+    });
+</script>
+</body>
+</html>
