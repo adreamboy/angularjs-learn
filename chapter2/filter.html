@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter 示例 | titleCase 首字母大写 </title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="content col-md-8 col-md-offset-2">
+    <h1>Filter 示例 | titleCase 首字母大写</h1>
+    <h1 ng-controller="HomeController">{{pageHeading | titleCase}}</h1>
+    <!--使用过滤器-->
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    //定义过滤器 titleCase
+    app.filter('titleCase',function () {
+       var titleCaseFilter = function (input) {
+            var words = input.split(' ');
+           for( var i = 0; i< words.length; i++){
+               words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+           }
+           return words.join(' ');
+        };
+        return titleCaseFilter;
+    });
+    app.controller('HomeController', function($scope) {
+        $scope.pageHeading = 'behold the majesty of your page title';
+    });
+</script>
+</body>
+</html>
