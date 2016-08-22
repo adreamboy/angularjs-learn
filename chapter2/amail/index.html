@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AMail">
+<head>
+    <meta charset="UTF-8">
+    <title>AMail | 使用路由和$location 切换视图</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <!--<script src="http://apps.bdimg.com/libs/angular.js/1.0.8/angular.min.js"></script>-->
+    <script src="controller.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="content col-md-8 col-md-offset-2">
+    <h1>A-Mail</h1>
+    <div ng-view></div>
+</div>
+</body>
+</html>
