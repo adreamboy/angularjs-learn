@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="content col-md-8 col-md-offset-2">
+    <div ng-controller="myCtrl">
+        <!--ng-option 指令来创建一个下拉列表-->
+        <select name=""  ng-model="selectedName" ng-options=" x for x in names "></select>
+        <p>您当前的选择是： {{ selectedName}}</p>
+        <!--ng-repeat 指令来创建下拉列表-->
+        <select name=""  ng-model="selectedSite">
+            <option ng-repeat="x in sites" value="{{x.url}}">{{ x.site}}</option>
+        </select>
+        <h1>你选择的是: {{selectedSite}}</h1>
+        <!--数据源为对象-->
+        <select ng-model="selectedWebSite" ng-options="x for (x, y) in websites">
+        </select>
+
+        <h1>你选择的值是: {{selectedWebSite}}</h1>
+    </div>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+
+    app.controller('myCtrl', function($scope) {
+        $scope.names = ['Google','Baidu','Weibo'];
+        $scope.selectedName = 'Weibo';
+        $scope.sites = [
+            {site : "Google", url : "http://www.google.com"},
+            {site : "Runoob", url : "http://www.runoob.com"},
+            {site : "Taobao", url : "http://www.taobao.com"}
+        ];
+        $scope.selectedSite = 'http://www.google.com';
+        $scope.websites = {
+            site01 : "Google",
+            site02 : "Runoob",
+            site03 : "Taobao"
+        };
+        $scope.selectWebSite = 'Taobao';
+    });
+    //ng-model 提供一个默认值
+</script>
+</body>
+</html>
