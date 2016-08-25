@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+        table, td  {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body ng-controller="tableController">
+<div class="content col-md-8 col-md-offset-2">
+    <table>
+        <tr ng-repeat="x in names | orderBy: 'Country'">
+            <td ng-if="$odd" style="background-color:#f1f1f1">{{ $index+1}}</td>
+            <td ng-if="$even">{{ $index+1}}</td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Name }}</td>
+            <td ng-if="$even">{{ x.Name }}</td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Country }}</td>
+            <td ng-if="$even">{{ x.Country }}</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+
+    app.controller('tableController', function($scope) {
+        var names =[
+            {Name:'jack',Country:'USA'},
+            {Name:'mike',Country:'UK'},
+            {Name:'asikla',Country:'JAP'},
+            {Name:'Qiang zhang',Country:'CHn'}
+        ];
+        $scope.names = names;
+     });
+</script>
+</body>
+</html>
