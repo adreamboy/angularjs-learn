@@ -6,3 +6,5 @@ version: 1.5.8;
 version:3.3.7;
 #Jquery
 version:1.9.1 - 3;
+#Angular WebApp Case Todo
+use Yeoman;bower;npm;grunt;angular...
