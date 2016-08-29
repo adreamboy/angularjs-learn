@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    $http(config);
+    $http({
+        method:string,
+        url: string,
+        params: object,
+        data: string or object,
+        header: object,
+        transformRequest: function transform(data ,headerFetter) or an array of functions,
+        transformResponse: function transform(data ,headerFetter) or an array of functions,
+        cache: boolean or Cache object,
+        timeout: number,
+        withCreadentials: boolean
+    });
+
+    angular.module('MyApp',[]).
+            config(function ($httpProvider) {
+//        删除angularJS默认的X-Request-with 头
+        delete $httpProvider.default.headers.common['X-Requested-With'];
+//        为所有GET请求设置 DO NOT TRACK
+        $httpProvider.default.headers.get['DNT'] = '1';
+    });
+
+    $http.get('api/user',{
+//        设置授权（Authorization）头.在真实的应用中，你需要一个到孤儿服务里面去获取 auth 令牌
+        headers: {'Authorization': 'Basic sfgkglifoti2456' },
+        params: {id:5}
+    }).success(function () {
+//        处理成功的情况
+    });
+
+//    缓存响应
+    $http.get('http://server/myapi',{
+        cache: true
+    }).success(function () {
+//        处理成功的情况
+    })
+
+</script>
+</body>
+</html>
