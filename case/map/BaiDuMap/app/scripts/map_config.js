@@ -2,81 +2,130 @@
  * Created by zq199 on 2016/9/1.
  * BaiDuMap config
  */
+'use strict';
 //百度地图API功能
-function loadJScript() {
-    var script = document.createElement("script");
+var bdMapController = {
+    /*
+     * config start
+     */
+    ws_url: '//' + window.location.host + '/',
+    site_url: '//' + window.location.host + '/',
+    map: null,
+    zoom: 6,
+    bdMap_ak: 'V5YM1CIwjDz2OEFTs4EAoPpv',
+    init: {
+        handle: function(){
+            bdMapController.init.initMap();
+            bdMapController.init.initController();
+            bdMapController.init.initgeolocationControl();
+            bdMapController.init.initTool();
+
+            bdMapController.render.marker_render();
+
+        },
+        initMap: function () {
+            bdMapController.map = new BMap.Map("map");// 创建地图实例
+            var point = new BMap.Point(112.424106,34.613064);  // 创建点坐标
+            bdMapController.map.centerAndZoom(point, bdMapController.zoom);//设置地图中心
+            bdMapController.render.addMarker(point);
+        },
+        initController: function () {
+            //初始化控件
+            bdMapController.map.addControl(new BMap.NavigationControl({
+                // 靠左上角位置
+                anchor: BMAP_ANCHOR_TOP_LEFT,
+                offset: new BMap.Size(20, 60),
+                // LARGE类型
+                type: BMAP_NAVIGATION_CONTROL_SMALL,
+                // 启用显示定位
+                enableGeolocation: true
+            }));// 导航
+            bdMapController.map.addControl(new BMap.ScaleControl());//比例尺
+            bdMapController.map.addControl(new BMap.OverviewMapControl());//缩略图
+            bdMapController.map.addControl(new BMap.MapTypeControl());//地图类型
+            bdMapController.map.addControl(new BMap.CityListControl({
+                anchor: BMAP_ANCHOR_TOP_RIGHT,
+                offset: new BMap.Size(80, 60)
+                // 切换城市之间事件
+                // onChangeBefore: function(){
+                //    alert('before');
+                // },
+                // 切换城市之后事件
+                // onChangeAfter:function(){
+                //   alert('after');
+                // }
+            }));//城市列表
+        },
+        initgeolocationControl: function () {
+            // 添加定位控件
+            var geolocationControl = new BMap.GeolocationControl();
+            geolocationControl.addEventListener("locationSuccess", function(e){
+                // 定位成功事件
+                var address = '';
+                address += e.addressComponent.province;
+                address += e.addressComponent.city;
+                address += e.addressComponent.district;
+                address += e.addressComponent.street;
+                address += e.addressComponent.streetNumber;
+                // alert("当前定位地址为：" + address);
+            });
+            geolocationControl.addEventListener("locationError",function(e){
+                // 定位失败事件
+                alert(e.message);
+            });
+            bdMapController.map.addControl(geolocationControl);
+        },
+        initTool: function () {
+            // 启用小工具
+            bdMapController.map.enableScrollWheelZoom();//启用滚轮放大缩小
+            bdMapController.map.enableInertialDragging();
+            bdMapController.map.enableContinuousZoom();
+        }
+    },
+    render: {
+        //小图标渲染函数
+        addMarker:function (point) {
+            var marker = new BMap.Marker(point);
+            bdMapController.map.addOverlay(marker);
+        },
+        marker_render: function()  {
+            // 随机向地图添加25个标注
+            // var bounds = bdMapController.map.getBounds();
+            // var sw = bounds.getSouthWest();
+            // var ne = bounds.getNorthEast();
+            // var lngSpan = Math.abs(sw.lng - ne.lng);
+            // var latSpan = Math.abs(ne.lat - sw.lat);
+            //lat=维度；lng=经度
+            var marker_points = [
+                {
+                    id:  '001',
+                    lat: '22.536804',
+                    lng: '113.943005',
+                    tag:'university',
+                    name: '深圳大学',
+                    address: '广东省深圳市南山区深大东路',
+                    url:''
+                }
+            ];
+            if(marker_points.length !== 0){
+                for (var i = 0; i < marker_points.length; i ++) {
+                    var marker_point = marker_points[i];
+                    var m_point = new BMap.Point(marker_point.lng,marker_point.lat);
+                    bdMapController.render.addMarker(m_point);
+                }
+            }
+        }
+
+    }
+};
+function loadJScript(){
     script.type = "text/javascript";
-    script.src = "http://api.map.baidu.com/api?v=2.0&ak=V5YM1CIwjDz2OEFTs4EAoPpv&callback=init";
+    script.src = "http://api.map.baidu.com/api?v=2.0&ak=V5YM1CIwjDz2OEFTs4EAoPpv&callback=bdMapController.init.handle";
     document.body.appendChild(script);
 }
-function init() {
-    var map = new BMap.Map("map");          // 创建地图实例
-    var point = new BMap.Point(116.404, 39.915);  // 创建点坐标
-    map.centerAndZoom(point, 15);//设置地图中心
+var script = document.createElement("script");
 
-//初始化控件
-    // 导航
-    map.addControl(new BMap.NavigationControl({
-        // 靠左上角位置
-        anchor: BMAP_ANCHOR_TOP_LEFT,
-        offset: new BMap.Size(20, 60),
-        // LARGE类型
-        type: BMAP_NAVIGATION_CONTROL_SMALL,
-        // 启用显示定位
-        enableGeolocation: true
-        }
-    ));
-    map.addControl(new BMap.ScaleControl());//比例尺
-    map.addControl(new BMap.OverviewMapControl());//缩略图
-    map.addControl(new BMap.MapTypeControl());//地图类型
-// map.setCurrentCity("北京"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
-
-    // 添加定位控件
-    var geolocationControl = new BMap.GeolocationControl();
-    geolocationControl.addEventListener("locationSuccess", function(e){
-        // 定位成功事件
-        var address = '';
-        address += e.addressComponent.province;
-        address += e.addressComponent.city;
-        address += e.addressComponent.district;
-        address += e.addressComponent.street;
-        address += e.addressComponent.streetNumber;
-        // alert("当前定位地址为：" + address);
-    });
-    geolocationControl.addEventListener("locationError",function(e){
-        // 定位失败事件
-        alert(e.message);
-    });
-    map.addControl(geolocationControl);
-    // 启用小工具
-    map.enableScrollWheelZoom();//启用滚轮放大缩小
-    map.enableInertialDragging();
-
-    map.enableContinuousZoom();
-
-    var size = new BMap.Size(10, 20);
-    map.addControl(new BMap.CityListControl({
-        anchor: BMAP_ANCHOR_TOP_RIGHT,
-        offset: new BMap.Size(80, 60),
-        // 切换城市之间事件
-        // onChangeBefore: function(){
-        //    alert('before');
-        // },
-        // 切换城市之后事件
-        // onChangeAfter:function(){
-        //   alert('after');
-        // }
-    }));
-    // 创建标注
-    var marker = new BMap.Marker(point);
-    map.addOverlay(marker);
-    //marker 动画
-    marker.setAnimation(BMAP_ANIMATION_BOUNCE);
-}
-window.onload = loadJScript;  //异步加载地图
-
-
-
+window.onload = loadJScript();  //异步加载地图
 //工具
 // MarkerTool：标注工具。通过此工具用户可在地图任意区域添加标注。
 // MarkerClusterer：多标注聚合器。此工具解决加载大量点要素到地图上造成缓慢，且产生覆盖现象的问题。
@@ -97,3 +146,4 @@ window.onload = loadJScript;  //异步加载地图
 // TextIconOverlay：自定义覆盖物工具。用户可以使用该工具在地图上添加文字和图标样式的覆盖物。
 // SearchInRectangle：拉框缩放工具，用于实现三种拉框搜索效果。
 // SearchInfoWindow：“百度地图样式”的信息窗口工具。该工具为用户提供带搜索框的信息窗口，该窗口内容可自由定制多种风格。同时，用户可以将信息窗口标题以短信方式发送到手机上。
+
