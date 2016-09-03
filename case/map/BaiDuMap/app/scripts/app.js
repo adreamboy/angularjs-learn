@@ -27,19 +27,3 @@ angular
         redirectTo: '/'
       });
   });
-// $(function () {
-//     function initialize() {
-//         var map = new BMap.Map("map");          // 创建地图实例
-//         var point = new BMap.Point(116.404, 39.915);  // 创建点坐标
-//         map.centerAndZoom(point, 15);
-//     }
-//
-//     function loadScript() {
-//         var script = document.createElement("script");
-//         script.src = "http://api.map.baidu.com/api?v=2.0&ak=V5YM1CIwjDz2OEFTs4EAoPpv";//此为v2.0版本的引用方式
-//         document.body.appendChild(script);
-//         initialize()
-//     }
-//
-//     window.onload = loadScript;
-// });
