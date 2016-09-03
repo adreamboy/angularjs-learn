@@ -5,29 +5,27 @@
 'use strict';
 //百度地图API功能
 var bdMapController = {
-    /*
-     * config start
-     */
+    /* --------config start----- */
     ws_url: '//' + window.location.host + '/',
     site_url: '//' + window.location.host + '/',
     map: null,
     zoom: 6,
     bdMap_ak: 'V5YM1CIwjDz2OEFTs4EAoPpv',
+    //init BaiDuMap start
     init: {
         handle: function(){
             bdMapController.init.initMap();
             bdMapController.init.initController();
-            bdMapController.init.initgeolocationControl();
+            bdMapController.init.initGeoLocationControl();
             bdMapController.init.initTool();
 
             bdMapController.render.marker_render();
-
         },
         initMap: function () {
             bdMapController.map = new BMap.Map("map");// 创建地图实例
-            var point = new BMap.Point(112.424106,34.613064);  // 创建点坐标
+            var point = new BMap.Point(113.943005,22.533064);  // 创建点坐标
             bdMapController.map.centerAndZoom(point, bdMapController.zoom);//设置地图中心
-            bdMapController.render.addMarker(point);
+            // bdMapController.render.addMarker(point);
         },
         initController: function () {
             //初始化控件
@@ -56,7 +54,7 @@ var bdMapController = {
                 // }
             }));//城市列表
         },
-        initgeolocationControl: function () {
+        initGeoLocationControl: function () {
             // 添加定位控件
             var geolocationControl = new BMap.GeolocationControl();
             geolocationControl.addEventListener("locationSuccess", function(e){
@@ -84,22 +82,40 @@ var bdMapController = {
     },
     render: {
         //小图标渲染函数
-        addMarker:function (point) {
-            var marker = new BMap.Marker(point);
+        addMarker:function (latlng,name,address,_link,id) {
+            var marker = new BMap.Marker(latlng);
             bdMapController.map.addOverlay(marker);
+            //信息窗infoWindows
+            var sContent =
+                "<div>"+
+                "<img style='float:right;margin:4px' id='imgDemo' src='http://app.baidu.com/map/images/tiananmen.jpg' width='100%' height='104' title='天安门'/>" +
+                "<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>"+name+"</p>" +
+                "</div>";
+            var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+            marker.addEventListener("click", function(){//小图标添加监听事件"click"
+                this.openInfoWindow(infoWindow);
+                //图片加载完毕重绘infowindow
+                document.getElementById('imgDemo').onload = function (){
+                    infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+                }
+            });
+
         },
         marker_render: function()  {
-            // 随机向地图添加25个标注
-            // var bounds = bdMapController.map.getBounds();
-            // var sw = bounds.getSouthWest();
-            // var ne = bounds.getNorthEast();
-            // var lngSpan = Math.abs(sw.lng - ne.lng);
-            // var latSpan = Math.abs(ne.lat - sw.lat);
             //lat=维度；lng=经度
             var marker_points = [
                 {
-                    id:  '001',
-                    lat: '22.536804',
+                    "id":  '001',
+                    "lat": '22.536804',
+                    "lng": '113.943005',
+                    "tag":'university',
+                    "name": '深圳大学',
+                    "address": '广东省深圳市南山区深大东路',
+                    "url":''
+                },
+                {
+                    id:  '002',
+                    lat: '23.536804',
                     lng: '113.943005',
                     tag:'university',
                     name: '深圳大学',
@@ -110,22 +126,33 @@ var bdMapController = {
             if(marker_points.length !== 0){
                 for (var i = 0; i < marker_points.length; i ++) {
                     var marker_point = marker_points[i];
-                    var m_point = new BMap.Point(marker_point.lng,marker_point.lat);
-                    bdMapController.render.addMarker(m_point);
+                    var latlng = new BMap.Point(marker_point.lng,marker_point.lat);
+                    var name = marker_point.name;
+                    var address = marker_point.address;
+                    var _link =marker_point.url;
+                    var id = marker_point.id;
+                    bdMapController.render.addMarker(latlng,name,address,_link,id);
                 }
             }
-        }
 
+            // var bounds = bdMapController.map.getBounds();
+            // var sw = bounds.getSouthWest();
+            // var ne = bounds.getNorthEast();
+            // var lngSpan = Math.abs(sw.lng - ne.lng);
+            // var latSpan = Math.abs(ne.lat - sw.lat);
+        }
     }
 };
 function loadJScript(){
+    var script = document.createElement("script");
     script.type = "text/javascript";
     script.src = "http://api.map.baidu.com/api?v=2.0&ak=V5YM1CIwjDz2OEFTs4EAoPpv&callback=bdMapController.init.handle";
     document.body.appendChild(script);
 }
-var script = document.createElement("script");
+
 
 window.onload = loadJScript();  //异步加载地图
+
 //工具
 // MarkerTool：标注工具。通过此工具用户可在地图任意区域添加标注。
 // MarkerClusterer：多标注聚合器。此工具解决加载大量点要素到地图上造成缓慢，且产生覆盖现象的问题。
