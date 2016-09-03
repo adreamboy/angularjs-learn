@@ -8,10 +8,8 @@
  * Controller of the baidumapApp
  */
 angular.module('baidumapApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('poiController',function ($scope, $http) {
+        $http.get("data/data.json")
+            .success(function(response) {$scope.poi_data = response.poi_data;});
+    });
+
