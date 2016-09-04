@@ -6,10 +6,10 @@
 //百度地图API功能
 var bdMapController = {
     /* --------config start----- */
-    ws_url: '//' + window.location.host + '/',
-    site_url: '//' + window.location.host + '/',
+    // ws_url: '//' + window.location.host + '/',
+    // site_url: '//' + window.location.host + '/',
     map: null,
-    zoom: 6,
+    zoom: 7,
     bdMap_ak: 'V5YM1CIwjDz2OEFTs4EAoPpv',
     //init BaiDuMap start
     init: {
@@ -23,7 +23,7 @@ var bdMapController = {
         },
         initMap: function () {
             bdMapController.map = new BMap.Map("map");// 创建地图实例
-            var point = new BMap.Point(113.943005,22.533064);  // 创建点坐标
+            var point = new BMap.Point(112.424106,34.613064);// 创建点坐标
             bdMapController.map.centerAndZoom(point, bdMapController.zoom);//设置地图中心
             // bdMapController.render.addMarker(point);
         },
@@ -82,45 +82,215 @@ var bdMapController = {
     },
     render: {
         //小图标渲染函数
-        addMarker:function (latlng,name,address,_link,id) {
+        addMarker:function (latlng,name,tag,id) {
             var marker = new BMap.Marker(latlng);
             bdMapController.map.addOverlay(marker);
             //信息窗infoWindows
             var sContent =
-                "<div>"+
-                "<img style='float:right;margin:4px' id='imgDemo' src='http://app.baidu.com/map/images/tiananmen.jpg' width='100%' height='104' title='天安门'/>" +
+                "<div><a href='#/"+tag+"/"+id+"' target='_blank'>"+
+                "<img id='imgDemo' src='http://app.baidu.com/map/images/tiananmen.jpg' width='100%' height='104' title='"+name+"'/>" +
                 "<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>"+name+"</p>" +
-                "</div>";
+                "</a></div>";
             var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
             marker.addEventListener("click", function(){//小图标添加监听事件"click"
                 this.openInfoWindow(infoWindow);
                 //图片加载完毕重绘infowindow
                 document.getElementById('imgDemo').onload = function (){
                     infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
-                }
+                };
             });
-
         },
         marker_render: function()  {
             //lat=维度；lng=经度
             var marker_points = [
                 {
-                    "id":  '001',
-                    "lat": '22.536804',
-                    "lng": '113.943005',
-                    "tag":'university',
-                    "name": '深圳大学',
-                    "address": '广东省深圳市南山区深大东路',
-                    "url":''
+                    "id":  "0",
+                    "lat": "22.536804",
+                    "lng": "113.943005",
+                    "tag":"university",
+                    "name": "深圳大学",
+                    "address": "广东省深圳市南山区深大东路",
+                    "url":""
                 },
                 {
-                    id:  '002',
-                    lat: '23.536804',
-                    lng: '113.943005',
-                    tag:'university',
-                    name: '深圳大学',
-                    address: '广东省深圳市南山区深大东路',
-                    url:''
+                    "id":  "1",
+                    "lat": "34.613064",
+                    "lng": "112.424106",
+                    "tag":"university",
+                    "name": "河南科技大学",
+                    "address": "河南省洛阳市洛龙区开元大道263",
+                    "url":""
+                },
+                {
+                    "id":  "2",
+                    "lat": "36.619927",
+                    "lng": "116.979585",
+                    "tag":"university",
+                    "name": "济南大学",
+                    "address": "山东省济南市市中区大学路",
+                    "url":""
+                },
+                {
+                    "id":  "3",
+                    "lat": "36.679893",
+                    "lng": "117.066433",
+                    "tag":"university",
+                    "name": "山东大学",
+                    "address": "山东省济南市历城区书圣路",
+                    "url":""
+                },
+                {
+                    "id":  "4",
+                    "lat": "39.997952",
+                    "lng": "116.315997",
+                    "tag":"university",
+                    "name": "北京大学",
+                    "address": "北京市海淀区求知路",
+                    "url":""
+                },
+                {
+                    "id":  "5",
+                    "lat": "36.262577",
+                    "lng": "117.111941",
+                    "tag":"spot",
+                    "name": "泰山",
+                    "address": "山东省泰安市泰山区",
+                    "url":""
+                },
+                {
+                    "id":  "6",
+                    "lat": "22.600005",
+                    "lng": "114.520081",
+                    "tag":"spot",
+                    "name": "大鹏所城",
+                    "address": "广东省深圳市龙岗区南门西路",
+                    "url":""
+                },
+                {
+                    "id":  "7",
+                    "lat": "22.580676",
+                    "lng": "114.207572",
+                    "tag":"spot",
+                    "name": "梧桐山",
+                    "address": "广东省深圳市罗湖区",
+                    "url":""
+                },
+                {
+                    "id":  "8",
+                    "lat": "34.564367",
+                    "lng": "112.479946",
+                    "tag":"spot",
+                    "name": "龙门石窟",
+                    "address": "河南省洛阳市洛龙区S238",
+                    "url":""
+                },
+                {
+                    "id":  "9",
+                    "lat": "34.929908",
+                    "lng": "112.387096",
+                    "tag":"spot",
+                    "name": "黄河小浪底风景区",
+                    "address": "河南省河南省直辖县级行政单位济源市Y012(张大线)",
+                    "url":""
+                },
+                {
+                    "id":  "10",
+                    "lat": "35.043863",
+                    "lng": "111.982082",
+                    "tag":"spot",
+                    "name": "黛眉山",
+                    "address": "河南省洛阳市新安县S246",
+                    "url":""
+                },
+                {
+                    "id":  "11",
+                    "lat": "34.975058",
+                    "lng": "112.018168",
+                    "tag":"spot",
+                    "name": "龙潭大峡谷",
+                    "address": "河南省洛阳市新安县Y003(石杨线)",
+                    "url":""
+                },
+                {
+                    "id":  "12",
+                    "lat": "34.727071",
+                    "lng": "112.612152",
+                    "tag":"spot",
+                    "name": "白马寺",
+                    "address": "河南省洛阳市洛龙区G310",
+                    "url":""
+                },
+                {
+                    "id":  "13",
+                    "lat": "25.735964",
+                    "lng": "110.114679",
+                    "tag":"spot",
+                    "name": "龙脊梯田",
+                    "address": "广西壮族自治区桂林市龙胜各族自治县Y839",
+                    "url":""
+                },
+                {
+                    "id":  "14",
+                    "lat": "24.739377",
+                    "lng": "110.494787",
+                    "tag":"spot",
+                    "name": "阳朔十里画廊",
+                    "address": "广西壮族自治区桂林市阳朔县G321(十里画廊)",
+                    "url":""
+                },
+                {
+                    "id":  "15",
+                    "lat": "31.246449",
+                    "lng": "121.497436",
+                    "tag":"spot",
+                    "name": "上海外滩",
+                    "address": "上海市黄浦区中山东一路500号",
+                    "url":""
+                },
+                {
+                    "id":  "16",
+                    "lat": "31.189927",
+                    "lng": "121.50074",
+                    "tag":"spot",
+                    "name": "世博会中国馆",
+                    "address": "上海市浦东新区上南路205号",
+                    "url":""
+                },
+                {
+                    "id":  "17",
+                    "lat": "30.257789",
+                    "lng": "120.141853",
+                    "tag":"spot",
+                    "name": "杭州西湖",
+                    "address": "浙江省杭州市西湖区北山路82路",
+                    "url":""
+                },
+                {
+                    "id":  "18",
+                    "lat": "39.923547",
+                    "lng": "116.403541",
+                    "tag":"spot",
+                    "name": "故宫",
+                    "address": "北京市东城区内金水桥",
+                    "url":""
+                },
+                {
+                    "id":  "19",
+                    "lat": "40.006481",
+                    "lng": "116.31582",
+                    "tag":"spot",
+                    "name": "圆明园",
+                    "address": "北京市海淀区清华西路",
+                    "url":""
+                },
+                {
+                    "id":  "20",
+                    "lat": "40.36432",
+                    "lng": "116.015949",
+                    "tag":"spot",
+                    "name": "八达岭长城",
+                    "address": "北京市延庆县S216",
+                    "url":""
                 }
             ];
             if(marker_points.length !== 0){
@@ -128,10 +298,9 @@ var bdMapController = {
                     var marker_point = marker_points[i];
                     var latlng = new BMap.Point(marker_point.lng,marker_point.lat);
                     var name = marker_point.name;
-                    var address = marker_point.address;
-                    var _link =marker_point.url;
+                    var tag =marker_point.tag;
                     var id = marker_point.id;
-                    bdMapController.render.addMarker(latlng,name,address,_link,id);
+                    bdMapController.render.addMarker(latlng,name,tag,id);
                 }
             }
 

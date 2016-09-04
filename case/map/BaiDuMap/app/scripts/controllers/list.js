@@ -2,19 +2,16 @@
 
 /**
  * @ngdoc function
- * @name baidumapApp.controller:MainCtrl
+ * @name baidumapApp.controller:ListCtrl
  * @description
- * # MainCtrl
+ * # ListCtrl
  * Controller of the baidumapApp
  */
 angular.module('baidumapApp')
-    .controller('MainCtrl',function () {
-        window.onload = loadJScript();  //异步加载地图
-    })
-    .controller('poiController',function ($scope, $http) {
+    .controller('ListCtrl',function ($scope, $http) {
+        $scope.hactive = false;
+        $scope.lactive = true;
+        $scope.cactive = false;
         $http.get("data/data.json")
             .success(function(response) {$scope.poi_data = response.poi_data;});
-    });
-
-
-
+  });

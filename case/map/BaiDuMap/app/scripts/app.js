@@ -18,12 +18,25 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/map_config', {
-        templateUrl: 'views/map_config.html',
-        controller: 'MapConfigCtrl',
-        controllerAs: 'mapConfig'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+        .when('/', {
+            templateUrl: 'views/main.html',
+            controller: 'MainCtrl',
+            controllerAs: 'main'
+        })
+        .when('/list', {
+            templateUrl: 'views/list.html',
+            controller: 'ListCtrl',
+            controllerAs: 'list'
+        })
+        .when('/university/:id',{
+            templateUrl: 'views/detail.html',
+            controller: 'DetailCtrl'
+        })
+        .when('/spot/:id',{
+            templateUrl: 'views/detail.html',
+            controller: 'DetailCtrl'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
   });

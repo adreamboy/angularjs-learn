@@ -13,8 +13,8 @@ body{height:100%;margin:0px;padding:0px}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing{
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Custom page header */
@@ -54,10 +54,6 @@ body{height:100%;margin:0px;padding:0px}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
   /* Remove the padding we set earlier */
   .header,
   .marketing,
