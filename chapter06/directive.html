@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="content col-md-8 col-md-offset-2">
+    <!--<hello></hello>-->
+    <div hello></div>
+    <!--<hi></hi>-->
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+//    app.directive('hello',function () {
+//        return {
+//            restrict: 'E',//指令声明方式
+//            template: '<div>this hello Template</div>',//替换的模板
+//            replace:true //是否替换，如果为false，结果为<hello><div>hi,there</div></hello>;嵌套结构
+//        }
+//    });
+//    利用script type="text/ng-template"
+//    app.directive('hi',function () {
+//        return {
+//            restrict: 'E',//指令声明方式
+//            templateUrl: 'hiTemplate.html',//替换的模板
+//            replace:true //是否替换，如果为false，结果为<hello><div>hi,there</div></hello>;嵌套结构
+//        }
+//    });
+//    另一个方法-Cache
+//    app.run(function ($templateCache) {
+//        $templateCache.put('helloTemplateCached.html','<div>Hello,there</div> ');
+//    });
+//    app.directive('hello',function () {
+//        return{
+//            restrict:'E',
+//            templateUrl:'helloTemplateCached.html',
+//            replace:true
+//        }
+//    });//只有在get请求数量少的情况下使用
+//    另一种方法-内嵌
+    app.directive('hello',function () {
+        return{
+            template:'<div>Hi,there<span ng-transclude></span></div>',
+            transclude:true
+        }
+    })
+</script>
+<!--用这种方式或者建一个hiTemplate.html文件-->
+<script type="text/ng-template" id="hiTemplate.html">
+    <div>this is hi template.</div>
+</script>
+</body>
+</html>
