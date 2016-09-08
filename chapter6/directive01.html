@@ -12,6 +12,18 @@
         .closed{
             display: none;
         }
+        .title{
+            border: 1px solid #ddd;
+            background: #eee;
+            padding: 5px 20px;
+        }
+        .body{
+            border: 1px solid #ddd;
+            padding: 5px 20px;
+        }
+        .expander{
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body ng-controller="SomeController">
@@ -40,8 +52,8 @@
                                 }
                             });
                         };
-                        this.addExpander =function (expander) {
-                            expanders.push(expander);
+                        this.addExpander = function (expander) {
+//                            expanders.push(expander);
                         }
                     }
                 }
@@ -61,7 +73,7 @@
                         scope.showMe = false;
                         accordionController.addExpander(scope);
                         scope.toggle = function toggle() {
-                            scope.showMe = !$scope.showMe;
+                            scope.showMe = !scope.showMe;
                             accordionController.gotOpened(scope);
                         }
                     }
