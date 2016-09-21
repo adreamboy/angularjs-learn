@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>$location 的使用</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body >
+<div class="content col-md-8 col-md-offset-2" ng-controller="LocationCtrl">
+    <h2>$location 服务上的方法</h2>
+    <table class="table">
+        <tr>
+            <td>absUrl()函数</td>
+            <td>获取值：{{absUrl}}</td>
+        </tr>
+        <tr>
+            <td>hash()函数</td>
+            <td>获取值：{{hash}}</td>
+        </tr>
+        <tr>
+            <td>host()函数</td>
+            <td>获取值：{{host}}</td>
+        </tr>
+        <tr>
+            <td>path()函数</td>
+            <td>获取值：{{path}}->{{url}}</td>
+        </tr>
+        <tr>
+            <td>url()函数</td>
+            <td>获取值：{{url}}</td>
+        </tr>
+        <tr>
+            <td>protocol()函数</td>
+            <td>获取值：{{protocol}}</td>
+        </tr>
+        <tr>
+            <td>search()函数</td>
+            <td>获取值：search({'c':'def'})->{{absUrl}}</td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+
+    app.controller('LocationCtrl', function($scope,$location) {
+        $scope.absUrl = $location.absUrl();
+        $scope.hash = $location.hash('location');
+        $scope.host = $location.host();
+        $scope.path =$location.path('/newPage');
+        $scope.url = $location.url();
+        $scope.protocol = $location.protocol();
+        $scope.search =$location.search({'c': 'def'});
+    });
+</script>
+</body>
+</html>

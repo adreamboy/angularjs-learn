@@ -32,7 +32,7 @@
         <expander class="expander" ng-repeat="expander in expanders" expander-title="expander.title">
             {{expander.text}}
         </expander>
-    </accordion>
+    </accordion>8
 </div>
 
 <script>
@@ -66,7 +66,8 @@
                     transclude:true,
                     require: '^?accordion',
                     scope:{title:'=expanderTitle'},
-                    template:'<div>'+
+                    template:
+                    '<div>'+
                     '<div class="title" ng-click="toggle()">{{title}}</div>'+
                     '<div class="body " ng-show="showMe" ng-transclude></div>'+
                     '</div>',
