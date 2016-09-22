@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <script src="/angularjs-learn/bower_components/angular-cookies/angular-cookies.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="content col-md-8 col-md-offset-2">
+    <div ng-controller="SearchController">
+        使用$cookieStore 前，必须引用‘ngCookie’组件；
+        <p>GitHUb:https://github.com/angular/bower-angular-cookies</p>
+        <p>npm</p>
+
+        npm install angular-cookies<br/>
+        Then add ngCookies as a dependency for your app:<br/>
+
+        angular.module('myApp', [require('angular-cookies')]);<br/>
+        bower<br>
+
+        bower install angular-cookies<br/>
+       <p> Add a &lt;script &gt; to your index.html:</p>
+        <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+        Then add ngCookies as a dependency for your app:
+
+        angular.module('myApp', ['ngCookies']);
+    </div>
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ngCookies']);
+
+    app.controller('SearchController', function($scope,$cookieStore) {
+        $scope.search = function (text) {
+            //在这里进行搜索操作
+            //...
+            //获取之前的搜索结果，如果没有找到任何结果，初始化一个空数组
+            var pastSearches = $cookieStore.get('app.past.searches') || [];
+            if (pastSearches.length > 5){
+                pastSearches = pastSearches.splice(0);
+            }
+            pastSearches.push(text);
+            $cookieStore.put('app.past.searches',pastSearches);
+        };
+    });
+</script>
+</body>
+</html>

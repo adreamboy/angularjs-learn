@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Provider</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="content col-md-8 col-md-offset-2">
+    <div ng-controller="NewCtrl">
+
+    </div>
+</div>
+
+<script>
+    var app = angular.module('myApp', [])
+            .config(function (greeterProvider) {
+                greeterProvider.setSalutation('Nameste');
+            });
+    app.provider('greeter',function () {
+        var salutation = 'Hello';
+        this.setSalutation = function (s) {
+            salutation = s;
+        };
+        function Greeter(s) {
+            this.greet = function () {
+                return salutation + ' ' + a;
+            }
+        }
+        this .$get = function (a) {
+            return new Greeter(a);
+        }
+    });
+    app.controller('NewCtrl', function($scope) {
+
+    });
+</script>
+</body>
+</html>
