@@ -41,7 +41,7 @@
         </tr>
         <tr>
             <td>search()函数</td>
-            <td>获取值：search({'c':'def'})->{{absUrl}}</td>
+            <td>获取值：search()->{{absUrl}}</td>
         </tr>
     </table>
 
@@ -57,7 +57,7 @@
         $scope.path =$location.path('/newPage');
         $scope.url = $location.url();
         $scope.protocol = $location.protocol();
-        $scope.search =$location.search({'c': 'def'});
+        $scope.search =$location.search();
     });
 </script>
 </body>
