@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <script src="/angularjs-learn/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body ng-controller="NewCtrl">
+<div class="content col-md-8 col-md-offset-2">
+    <p>使用前必须先引用‘ngSanitize’组件</p>
+    <h2>HTML无害化</h2>
+    <table class="table">
+        <tr>
+            <td>ng-bind</td>
+            <td><div ng-bind="myUnsafeHTMLcontent"></div></td>
+        </tr>
+        <tr>
+            <td>ng-blind-html</td>
+            <td><div ng-bind-html="myUnsafeHTMLcontent"></div></td>
+        </tr>
+        <tr>
+            <td>ng-blind-html-unsafe</td>
+            <td ><div ng-bind-html-unsafe ="myUnsafeHTMLcontent"></div></td>
+            <!--angular 1.5.8 指令失效-->
+        </tr>
+    </table>
+    <h2>Linky</h2>
+    <table class="table">
+        <tr>
+            <td>ng-blind-html</td>
+            <td><div ng-bind-html="contents"></div></td>
+        </tr>
+        <tr>
+            <td>Linky 过滤器</td>
+            <td><div ng-bind-html="contents | linky"></div></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ngSanitize']);
+
+    app.controller('NewCtrl', function($scope) {
+        $scope.myUnsafeHTMLcontent = '<p style="color:blue">an html'+
+                '<em onmouseover="this.textContent ="PWN3D!" ">click here </em>'+
+                'snippet</p>';
+        $scope.contents = 'Text with links: http://angularjs.org/ & mailto:us@there.org';
+
+    });
+</script>
+</body>
+</html>
