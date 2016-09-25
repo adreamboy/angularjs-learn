@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Teams List应用： 过滤器和控制器的交互</title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <script src="services.js"></script>
+    <script src="app.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="content col-md-8 col-md-offset-2">
+    <h2>Teams List应用： 过滤器和控制器的交互</h2>
+    <div class="container-fluid">
+        <div class="col-md-3" ng-controller="FilterCtrl">
+            <form action=""class="form-horizontal">
+                <div class="form-group">
+                    <label for="searchTextBox" class="col-md-3 control-label">Search:</label>
+                    <div class="col-md-9 ">
+                        <input class="form-control" type="text" id="searchTextBox" ng-model="filterService.searchText">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sportComboBox" class="col-md-3 control-label">Sport:</label>
+                    <div class="col-md-9">
+                        <select name="" id="sportComboBox" class="form-control" ng-model="filterService.activeFilters.sport">
+                            <option value="" ng-repeat="sport in ['Basketball','Hockey','Football']">{{sport}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cityComboBox" class="col-md-3 control-label">City:</label>
+                    <div class="col-md-9">
+                        <select id="cityComboBox" class="form-control" ng-model="filterService.activeFilters.city">
+                            <option ng-repeat="city in ['Dallas', 'Los Angeles', 'Boston', 'New York']">{{city}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-5 control-label" >Featured:</label>
+                    <div class="col-md-7">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"  ng-model="filterService.activeFilters.featured" ng-false-value="" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-offset-md-1 col-md-8" ng-controller="ListCtrl">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Sport</th>
+                    <th>City</th>
+                    <th>Featured</th>
+                </tr>
+                </thead>
+                <tbody id="teamListTable">
+                <tr ng-repeat="team in teamsList | filter:filterService.activeFilters | filter:filterService.searchText">
+                    <td>{{team.name}}</td>
+                    <td>{{team.sport}}</td>
+                    <td>{{team.city}}</td>
+                    <td>{{team.featured}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
