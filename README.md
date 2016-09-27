@@ -1,12 +1,6 @@
 # anjularjs-learn
 Angular-book:《用Angular JS开发下一代Web应用》
-#Angular.js
-version: 1.5.8;
-#Bootstrap
-version:3.3.7;
-#Jquery
-version:1.9.1;
 #Angular WebApp Case Todo
-use Yeoman;bower;npm;grunt;angular...
+一个基于angularJs的Todo-list小应用
 #Angular WebApp Case RecipeList
-use Yeoman;bower;npm;grunt;angular
+一个基于angularJs的菜谱应用，实现展示、编辑、添加、删除功能
