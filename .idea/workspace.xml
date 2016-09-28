@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="472fe878-8d03-4870-81d4-4d6d42f9d4fe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/angular-file-upload.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/angular-file-upload.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/console-sham.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/console-sham.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/image-preview/controllers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/image-preview/directives.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/image-preview/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/image-preview/upload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/image-preview/uploads/gap.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/simple/controllers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/simple/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/simple/upload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/simple/uploads/gap.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chapter8/file-upload/index.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="de706a8f-c123-4cd9-9057-b755f75f4a45" name="New changelist" comment="">
@@ -49,7 +56,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="95">
-                <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+                <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -57,31 +64,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chapter8/file-upload/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="console-sham.min.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="console-sham.min.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chapter8/file-upload/console-sham.min.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
-              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+              <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.git/config">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/chapter8/file-upload/image-preview/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="171">
+              <caret line="9" column="74" selection-start-line="9" selection-start-column="74" selection-end-line="9" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -105,9 +102,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/others/http.html" />
-        <option value="$PROJECT_DIR$/AngularJS Service/http.html" />
-        <option value="$PROJECT_DIR$/AngularJS Service/service.html" />
         <option value="$PROJECT_DIR$/AngularJS/http/index.html" />
         <option value="$PROJECT_DIR$/AngularJS/http/Customers_JSON.php" />
         <option value="$PROJECT_DIR$/AngularJS/Angular Select/index.html" />
@@ -156,6 +150,9 @@
         <option value="$PROJECT_DIR$/.git/config" />
         <option value="$PROJECT_DIR$/chapter8/angular-file-upload/index.html" />
         <option value="$PROJECT_DIR$/chapter8/file-upload/index.html" />
+        <option value="$PROJECT_DIR$/chapter8/file-upload/README.md" />
+        <option value="$PROJECT_DIR$/chapter8/file-upload/simple/index.html" />
+        <option value="$PROJECT_DIR$/chapter8/file-upload/image-preview/index.html" />
       </list>
     </option>
   </component>
@@ -385,14 +382,7 @@
       <workItem from="1474899956238" duration="4120000" />
       <workItem from="1474988463385" duration="2750000" />
       <workItem from="1475028196993" duration="636000" />
-      <workItem from="1475071005027" duration="1752000" />
-    </task>
-    <task id="LOCAL-00008" summary="case of chapter2">
-      <created>1471529994934</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1471529994934</updated>
+      <workItem from="1475071005027" duration="3161000" />
     </task>
     <task id="LOCAL-00009" summary="case of chapter2">
       <created>1471593339198</created>
@@ -730,11 +720,18 @@
       <option name="project" value="LOCAL" />
       <updated>1475072722029</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="angular-file-upload add js">
+      <created>1475072786720</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1475072786720</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149213000" />
+    <option name="totallyTimeSpent" value="150622000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -756,7 +753,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43103448" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12334218" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2856604" sideWeight="0.50231326" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -799,7 +796,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update case RecipeList" />
     <MESSAGE value="与服务器交互" />
     <MESSAGE value="change config" />
     <MESSAGE value="update README.md" />
@@ -824,7 +820,8 @@
     <MESSAGE value="angular-file-upload" />
     <MESSAGE value="delate angular-file-upload" />
     <MESSAGE value="angular-file-upload test" />
-    <option name="LAST_COMMIT_MESSAGE" value="angular-file-upload test" />
+    <MESSAGE value="angular-file-upload add js" />
+    <option name="LAST_COMMIT_MESSAGE" value="angular-file-upload add js" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="false" />
   </component>
   <component name="XDebuggerManager">
@@ -834,23 +831,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../front-end-project/BaiDuMap/app/scripts/app.js" />
-    <entry file="file://$PROJECT_DIR$/../front-end-project/BaiDuMap/app/data/data.json" />
-    <entry file="file://$PROJECT_DIR$/../front-end-project/BaiDuMap/README.md" />
-    <entry file="file://$PROJECT_DIR$/chapter2/itemServiceModule.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chapter2/studentslist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chapter2/amail/detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -1112,17 +1092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="95">
-            <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chapter8/file-upload/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1131,10 +1100,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="95">
+            <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter8/file-upload/image-preview/uploads/gap.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/chapter8/file-upload/console-sham.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter8/file-upload/simple/uploads/gap.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter8/file-upload/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="38">
+            <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter8/file-upload/simple/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter8/file-upload/image-preview/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="74" selection-start-line="9" selection-start-column="74" selection-end-line="9" selection-end-column="74" />
           <folding />
         </state>
       </provider>
