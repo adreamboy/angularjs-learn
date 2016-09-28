@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="472fe878-8d03-4870-81d4-4d6d42f9d4fe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/angular-file-upload.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/angular-file-upload.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/console-sham.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter8/file-upload/console-sham.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="de706a8f-c123-4cd9-9057-b755f75f4a45" name="New changelist" comment="">
@@ -54,11 +57,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chapter8/file-upload/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
               <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console-sham.min.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/chapter8/file-upload/console-sham.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -372,14 +385,7 @@
       <workItem from="1474899956238" duration="4120000" />
       <workItem from="1474988463385" duration="2750000" />
       <workItem from="1475028196993" duration="636000" />
-      <workItem from="1475071005027" duration="1700000" />
-    </task>
-    <task id="LOCAL-00007" summary="update README">
-      <created>1471500286058</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1471500286058</updated>
+      <workItem from="1475071005027" duration="1752000" />
     </task>
     <task id="LOCAL-00008" summary="case of chapter2">
       <created>1471529994934</created>
@@ -717,11 +723,18 @@
       <option name="project" value="LOCAL" />
       <updated>1475072596436</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="angular-file-upload test">
+      <created>1475072722029</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1475072722029</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149161000" />
+    <option name="totallyTimeSpent" value="149213000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -786,7 +799,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update case todo" />
     <MESSAGE value="update case RecipeList" />
     <MESSAGE value="与服务器交互" />
     <MESSAGE value="change config" />
@@ -811,7 +823,8 @@
     <MESSAGE value="delate file-upload" />
     <MESSAGE value="angular-file-upload" />
     <MESSAGE value="delate angular-file-upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="delate angular-file-upload" />
+    <MESSAGE value="angular-file-upload test" />
+    <option name="LAST_COMMIT_MESSAGE" value="angular-file-upload test" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="false" />
   </component>
   <component name="XDebuggerManager">
@@ -1099,14 +1112,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chapter8/file-upload/console-sham.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -1122,6 +1127,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter8/file-upload/console-sham.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
           <folding />
         </state>
       </provider>
