@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="/angularjs-learn/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="/angularjs-learn/bower_components/angular/angular.min.js"></script>
+    <style>
+        .content{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body ng-controller="PhoneListCtrl">
+<div class="content col-md-8 col-md-offset-2">
+    <div class="col-md-2">
+        <!--Sidebar content-->
+
+        Search: <input ng-model="query" class="form-control">
+
+    </div>
+    <div class="col-md-10">
+        <p>Total number of phones: {{phones.length}}</p>
+        <ul>
+            <li ng-repeat="phone in phones | filter:query">
+                {{phone.name}}
+                <p>{{phone.snippet}}</p>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<script src="controller.js"></script>
+</body>
+</html>
